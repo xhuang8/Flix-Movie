@@ -12,6 +12,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var movies: [[String: Any]] = []
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +31,18 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
         let width = collectionView.frame.size.width / cellsPerline - interItemSpacingTotal / cellsPerline
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
         
-        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(SuperheroViewController.didPullToRefresh(_:)), for: .valueChanged)
+        collectionView.insertSubview(refreshControl, at: 0)
         
         fetchMovies()
         // Do any additional setup after loading the view.
         
+    }
+    
+    @objc func didPullToRefresh(_ refreshControl: UIRefreshControl)
+    {
+        fetchMovies()
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -84,7 +92,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
                     print(title)
                     self.movies = movies
                     self.collectionView.reloadData()
-                    //self.refreshControl.endRefreshing()
+                    self.refreshControl.endRefreshing()
                     // self.activityIndiator.stopAnimating()
                 }
             }
