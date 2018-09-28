@@ -16,7 +16,9 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
    
     
-    var movies: [[String: Any]] = []
+    //var movies: [[String: Any]] = []
+    var movies: [Movie] = []
+    
     var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
@@ -80,11 +82,15 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 print(dataDictionary)
                 
-                let movies  = dataDictionary["results"] as! [[String: Any]]
-                for movie in movies{
-                    let title = movie["title"] as! String
-                    print(title)
-                    self.movies = movies
+                let movieDictionaries  = dataDictionary["results"] as! [[String: Any]]
+                self.movies = []
+                for dictionary in movieDictionaries{
+               // for movie in movies{
+                   // let title = movie["title"] as! String
+                  //  print(title)
+                   // self.movies = movies
+                    let movie = Movie(dictionary: dictionary)
+                    self.movies.append(movie)
                     self.tableView.reloadData()
                     self.refreshControl.endRefreshing()
                     self.activityIndiator.stopAnimating()
@@ -100,7 +106,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-        let movie = movies[indexPath.row]
+        /*let movie = movies[indexPath.row]
         let title = movie ["title"] as! String
         let overview = movie["overview"] as! String
         cell.titleLabel.text = title
@@ -110,8 +116,10 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         let baseURLString = "https://image.tmdb.org/t/p/w500"
         
         let posterURL = URL(string: baseURLString + posterPathString)!
-        cell.posterImageView.af_setImage(withURL: posterURL)
+        cell.posterImageView.af_setImage(withURL: posterURL)*/
         
+        cell.movie = movies[indexPath.row]
+
         return cell
     }
 
