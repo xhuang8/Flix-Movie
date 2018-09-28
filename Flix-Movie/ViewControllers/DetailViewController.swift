@@ -8,11 +8,11 @@
 
 import UIKit
 
-enum MovieKeys {
+/*enum MovieKeys {
     static let title = "title"
     static let backdropPath = "backdrop_path"
     static let posterPath = "poster_path"
-}
+}*/
 
 
 
@@ -28,19 +28,19 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var overviewLabel: UILabel!
     
-    var movie: [String: Any]?
+    var movie: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let movie = movie {
-            titleLabel.text = movie[MovieKeys.title]as? String
-            releaseDateLabel.text = movie["release_date"]as? String
-            overviewLabel.text = movie["overview"]as? String
+            titleLabel.text = movie.title
+            releaseDateLabel.text = movie.releaseDate
+            overviewLabel.text = movie.overview
             
-            let backdropPathString = movie[MovieKeys.backdropPath]as! String
+            let backdropPathString = "\(String(describing: movie.backdropBathUrl))"
             
-            let posterPathString = movie[MovieKeys.posterPath]as! String
+            let posterPathString = "\(String(describing: movie.posterUrl))"
             
             let baseURLString = "https://image.tmdb.org/t/p/w500"
             

@@ -119,7 +119,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         cell.posterImageView.af_setImage(withURL: posterURL)*/
         
         cell.movie = movies[indexPath.row]
-
         return cell
     }
 
