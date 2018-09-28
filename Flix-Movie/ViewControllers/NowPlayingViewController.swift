@@ -68,6 +68,20 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     }
     
     
+    @IBAction func popularMovies(_ sender: Any) {
+        
+        MovieApiManager().getPopularMovies{ (movies: [Movie]?, error: Error?) in
+            if let movies = movies {
+                self.movies = movies
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityIndiator.stopAnimating()
+            }else if let error = error{
+                print(error.localizedDescription)
+                self.myAlert(title: "Cannot Get Movies", message: "The Internet connection appears to be offline.")
+            }
+        }
+    }
     //override func viewDidAppear(_ animated: Bool) {
     //myAlert(title: "Cannot Get Movies", message: "The Internet connection appears to be offline.")
     //}

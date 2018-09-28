@@ -87,7 +87,18 @@
                         <color key="backgroundColor" red="1" green="0.098485944160000005" blue="0.12988112039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movies" id="W5A-LK-A1A"/>
+                    <navigationItem key="navigationItem" title="Movies" id="W5A-LK-A1A">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="bQf-s3-iKj">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MvP-hC-n13">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Popular"/>
+                                <connections>
+                                    <action selector="popularMovies:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8rf-5z-WJv"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndiator" destination="1vf-L6-b49" id="ndf-zq-mxu"/>
                         <outlet property="tableView" destination="hLM-vR-ZT2" id="IOy-JI-B5k"/>
@@ -283,6 +294,6 @@
         <image name="superhero_tabbar_item" width="21" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vr9-Zd-hOc"/>
+        <segue reference="559-lW-xoY"/>
     </inferredMetricsTieBreakers>
 </document>
