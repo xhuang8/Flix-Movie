@@ -33,15 +33,32 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         tableView.estimatedRowHeight = 50
         
         self.activityIndiator.startAnimating()
-        fetchMovies()
+       // fetchMovies()
         
         
         //tableView.dataSource = self
+        MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
+            if let movies = movies {
+                self.movies = movies
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityIndiator.stopAnimating()
+            }
+        }
+        
     }
     
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl)
     {
-        fetchMovies()
+        //fetchMovies()
+        MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
+            if let movies = movies {
+                self.movies = movies
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+                self.activityIndiator.stopAnimating()
+            }
+        }
     }
     
     
@@ -60,7 +77,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func fetchMovies()
+   /* func fetchMovies()
     {
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         
@@ -98,7 +115,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
             }
         }
         task.resume()
-    }
+    }*/
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count

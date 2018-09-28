@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B42E830215E081E00280CEE /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B42E82F215E081E00280CEE /* Movie.swift */; };
+		0B42E832215E14AD00280CEE /* MovieApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B42E831215E14AD00280CEE /* MovieApiManager.swift */; };
 		0BFC8A76214B5910002903D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC8A75214B5910002903D3 /* AppDelegate.swift */; };
 		0BFC8A78214B5910002903D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC8A77214B5910002903D3 /* ViewController.swift */; };
 		0BFC8A7B214B5910002903D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BFC8A79214B5910002903D3 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		0B42E82F215E081E00280CEE /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		0B42E831215E14AD00280CEE /* MovieApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApiManager.swift; sourceTree = "<group>"; };
 		0BFC8A72214B5910002903D3 /* Flix-Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flix-Movie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BFC8A75214B5910002903D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BFC8A77214B5910002903D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				0B42E82F215E081E00280CEE /* Movie.swift */,
+				0B42E831215E14AD00280CEE /* MovieApiManager.swift */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				0BFC8A78214B5910002903D3 /* ViewController.swift in Sources */,
 				0BFC8AA4214B6830002903D3 /* NowPlayingViewController.swift in Sources */,
 				0BFC8AEA214BA659002903D3 /* PosterCell.swift in Sources */,
+				0B42E832215E14AD00280CEE /* MovieApiManager.swift in Sources */,
 				0BFC8AE8214B9F20002903D3 /* DetailViewController.swift in Sources */,
 				0BFC8AEC214BA6B6002903D3 /* SuperheroViewController.swift in Sources */,
 				0BFC8AA6214B6ED6002903D3 /* MovieCell.swift in Sources */,
