@@ -43,6 +43,9 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityIndiator.stopAnimating()
+            }else if let error = error{
+                print(error.localizedDescription)
+                self.myAlert(title: "Cannot Get Movies", message: "The Internet connection appears to be offline.")
             }
         }
         
@@ -57,6 +60,9 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
                 self.activityIndiator.stopAnimating()
+            }else if let error = error{
+                print(error.localizedDescription)
+                self.myAlert(title: "Cannot Get Movies", message: "The Internet connection appears to be offline.")
             }
         }
     }

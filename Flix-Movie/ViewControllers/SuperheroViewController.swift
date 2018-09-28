@@ -42,7 +42,10 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
                 self.movies = movies
                 self.collectionView.reloadData()
                 self.refreshControl.endRefreshing()
-            }
+            }//else if let error = error {
+              //  print(error.localizedDescription)
+                //self.myAlert(title: "Cannot Get Movies", message: "The Internet connection appears to be offline.")
+            //}
         }
         
     }
